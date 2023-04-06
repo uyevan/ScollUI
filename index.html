@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>云上北民大</title>
+    <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css"/>
+</head>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<style>
+    /*字体定义*/
+    @font-face {
+        font-family: fontsOne; /* 自定义字体名称 */
+        src: url('res/font/fonts_one.ttf'); /* 自定义字体文件路径 */
+    }
+
+    /* 隐藏整个滚动条 */
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* 修改滚动条的颜色和宽度
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: #ccc;
+        border-radius: 5px;
+    }
+    */
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    html, body {
+        margin: 0;
+        -webkit-user-select: none; /* Safari */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE10+/Edge */
+        user-select: none; /* 标准语法 */
+    }
+
+    .top {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        background-size: cover;
+        backdrop-filter: blur(32px); /* 高斯模糊效果 */
+        /*filter: brightness(50%) contrast(150%); !* 其他视觉效果 *!*/
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: rgba(255, 255, 255, 0.5); /* 半透明白色 */
+        padding-top: 10px;
+        padding-bottom: 15px;
+        box-shadow: 0 1px 8px 1px rgba(0, 0, 0, 0.15);
+    }
+
+    /* 使用 Media Queries*/
+    @media (max-width: 300px) {
+        .header {
+            margin-top: 400px;
+        }
+    }
+
+    .tob-tap {
+        display: flex;
+        flex: 1 0 80%;
+        flex-flow: wrap;
+        margin-top: 10px;
+        margin-left: 8px;
+        margin-right: 8px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .tob-tap div {
+        align-items: center;
+        width: 80px;
+        display: flex;
+        box-shadow: 0 1px 32px 0 rgba(0, 0, 0, 0.1);
+        padding: 5px;
+        border-radius: 25px;
+        margin: 3px 3px 3px 8px;
+        transition: background-color 0.5s ease-in-out;
+        cursor: pointer;
+    }
+
+    .tob-tap div:hover {
+        background-color: #13abfd;
+        color: white;
+        transform: scale(1.1);
+    }
+
+
+    .tob-tap div i {
+        margin-left: 8px;
+    }
+
+    .tob-tap div h5 {
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+
+    .logo {
+        padding: 5px;
+        margin-top: 10px;
+    }
+
+    .logo p {
+        font-weight: bold;
+        font-family: fontsOne, sans-serif;
+        margin-left: 24px;
+        font-size: 24px;
+        flex: 1 0;
+        transition: 1s ease-in-out;
+    }
+
+    /*逐变效果*/
+    .logo p:hover {
+        background: linear-gradient(45deg, #13abfd, #26e574, #e4ea2b);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    .data {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        margin-left: 8px;
+        margin-top: 10px;
+        flex: 1 0;
+    }
+
+    .data h5 {
+        margin-right: 12px;
+        font-weight: bold;
+        font-size: large;
+        transition: text-shadow 0.5s ease-in-out;
+    }
+
+    /*发光兄啊过*/
+    .data h5:hover {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #13abfd, 0 0 40px #13abfd, 0 0 50px #f00, 0 0 60px #f00, 0 0 70px #f00;
+    }
+
+    .data div {
+        margin-right: 24px;
+    }
+
+    .head-icon {
+        width: 50px;
+        height: 50px;
+        box-shadow: 0 1px 16px 3px rgba(0, 0, 0, 0.2);
+        border-radius: 25px;
+        transition: 0.5s ease-in-out;
+    }
+
+    .head-icon:hover {
+        transform: rotate(180deg);
+    }
+
+    .header {
+        /*margin-top: 100px;*/
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        transition: all 0.2s ease-out;
+    }
+
+    .all-but {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        padding: 10px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<style>
+    .blue {
+        background-color: #13abfd;
+        color: white;
+    }
+
+    .white {
+        background-color: #fff;
+        color: black;
+    }
+</style>
+
+<body>
+
+<div>
+    <!--头部-->
+    <div class="top" id="top">
+        <!--logo-->
+        <div class="logo">
+            <p>云上北民大</p>
+        </div>
+        <!--TabBar定义-->
+        <div class="tob-tap" id="tob-tap">
+            <div id="home">
+                <i class="mdui-icon material-icons">home</i>
+                <h5><small>首页</small></h5>
+            </div>
+            <div id="art">
+                <i class="mdui-icon material-icons">camera_enhance</i>
+                <h5><small>活动</small></h5>
+            </div>
+            <div id="tool">
+                <i class="mdui-icon material-icons">bubble_chart</i>
+                <h5><small>导航</small></h5>
+            </div>
+            <div id="food">
+                <i class="mdui-icon material-icons">invert_colors</i>
+                <h5><small>美食</small></h5>
+            </div>
+            <div id="my">
+                <i class="mdui-icon material-icons">folder_shared</i>
+                <h5><small>我的</small></h5>
+            </div>
+        </div>
+        <!--个人-->
+        <div class="data">
+            <h5><small>Evan's</small></h5>
+            <div>
+                <img class="head-icon" src="res/img/head.jpg"/>
+            </div>
+        </div>
+    </div>
+    <div class="header" id="header"></div>
+</div>
+
+<div class="all-but">
+    <small>计算机科学与工程学院 热伊木+马君 [ 原创网页---图片素材来自广大互联网---未使用任何UI框架---原生HTML5+CSS3设计---工具包：jQuery+MD图标
+        ]</small>
+</div>
+
+</body>
+
+<script>
+    var div = document.getElementById("header");
+    var initialTopOffset = 100; // 记录初始顶部距离
+    function updateDivPosition() {
+        switch (true) {
+            case window.innerWidth <= 1530 && window.innerWidth > 746:
+                var topOffset = 150;
+                break;
+            case window.innerWidth <= 746 && window.innerWidth > 520:
+                var topOffset = 200;
+                break;
+            case window.innerWidth <= 520 && window.innerWidth > 319:
+                var topOffset = 250;
+                break;
+            case window.innerWidth <= 319:
+                var topOffset = 300;
+                break;
+            default:
+                var topOffset = initialTopOffset;
+                break;
+        }
+        div.style.marginTop = topOffset + "px"; // 修改高度
+    }
+
+    // 初始化页面和事件处理
+    updateDivPosition();
+    window.addEventListener("resize", updateDivPosition);
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        // 默认首页 自动点击操作
+        $('#home').trigger('click', function () {
+            console.log(5);
+            $.get('home.html', function (data) {
+                $("#header").fadeOut(300, function () {
+                    $(this).html(data).fadeIn(300);
+                });
+            });
+        });
+    });
+
+</script>
+
+<script>
+    var box = document.getElementById('header');
+
+    box.addEventListener('mousedown', function (e) {
+        var startX = e.clientX,
+            startY = e.clientY,
+            offsetX = 0,
+            offsetY = 0;
+
+        var move = function (e) {
+            offsetX = e.clientX - startX;
+            offsetY = e.clientY - startY;
+            box.style.transform = 'translate(' + offsetX + 'px, ' + offsetY + 'px)';
+        };
+
+        var up = function (e) {
+            box.removeEventListener('mousemove', move);
+            box.removeEventListener('mouseup', up);
+
+            box.style.transition = 'all 0.2s ease-out';
+            box.style.transform = 'translate(0, 0)';
+        };
+
+        box.addEventListener('mousemove', move);
+        box.addEventListener('mouseup', up);
+
+        box.style.transition = '';
+    });
+</script>
+
+<script>
+    //首页
+    $('#home').click(function () {
+        // 动画添加内容
+        $.get('home.html', function (data) {
+            $("#header").fadeOut(300, function () {
+                $(this).html(data).fadeIn(300);
+            });
+        });
+    });
+
+    //活动页
+    $('#art').click(function () {
+        $.get('art.html', function (data) {
+            $("#header").fadeOut(300, function () {
+                $(this).html(data).fadeIn(300);
+            });
+        });
+    });
+    //导航页
+    $('#tool').click(function () {
+        $.get('tool.html', function (data) {
+            $("#header").fadeOut(300, function () {
+                $(this).html(data).fadeIn(300);
+            });
+        });
+    });
+    //美食页
+    $('#food').click(function () {
+        $.get('food.html', function (data) {
+            $("#header").fadeOut(300, function () {
+                $(this).html(data).fadeIn(300);
+            });
+        });
+    });
+    //我的页
+    $('#my').click(function () {
+        $.get('my.html', function (data) {
+            $("#header").fadeOut(300, function () {
+                $(this).html(data).fadeIn(300);
+            });
+        });
+    });
+
+    // 背景修改
+    $("#tob-tap div").click(function () {
+        const $this = $(this);
+        if (!$this.hasClass("blue")) { //判断是否有这个class
+            $("#tob-tap div").removeClass("blue").addClass("white"); // 都改成白色
+            $this.removeClass("white").addClass("blue"); // 当前的再变成蓝色
+        }
+    });
+
+</script>
+</html>

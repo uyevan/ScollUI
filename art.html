@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>艺术</title>
+    <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css"/>
+</head>
+
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .art-root {
+        padding-bottom: 35px;
+    }
+
+    html, body {
+        background-color: #eaedf2;
+    }
+
+    .art-top {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    }
+
+    .art-top h4 {
+        margin-left: 55px;
+    }
+
+    .art-card {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        border-radius: 10px;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05);
+        transition: transform 0.5s ease-in-out;
+        margin-top: 10px;
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+
+    .art-card:hover {
+        /*缩放动画*/
+        transform: scale(0.90);
+    }
+
+    .art-card img:first-child {
+        width: 24px;
+    }
+
+    .art-card img:nth-child(2) {
+        width: 35px;
+        object-fit: cover;
+        margin-left: 60px;
+    }
+
+    .art-card h4:nth-child(3) {
+        margin-left: 12px;
+        font-size: 14px;
+    }
+
+    .art-card img:nth-child(4) {
+        width: 24px;
+        margin-left: 60px;
+    }
+
+    .art-card h4:nth-child(5) {
+        margin-left: 4px;
+        font-size: 10px;
+        background-color: #2ECC71;
+        text-align: center;
+        padding: 4px 5px 3px;;
+        color: white;
+        border-radius: 10px;
+    }
+
+    .art-card small:nth-child(7) {
+        margin-left: 16px;
+    }
+
+    .progress {
+        width: 180px;
+        margin: 15px 15px 15px 60px;
+    }
+
+    .art-add_b {
+        width: 80px;
+        margin-left: 60px;
+        display: flex;
+        height: 35px;
+        justify-content: center;
+        align-items: center;
+        background-color: #2ECC71;
+        border-radius: 10px;
+        box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.3);
+        transition: 0.5s ease-in-out;
+        color: white;
+        font-weight: bold;
+        font-size: 13px;
+        margin-right: 60px;
+    }
+
+
+</style>
+<body>
+
+<div class="art-root">
+    <!--头部-->
+    <div class="art-top">
+        <h4>
+            民大云实践 <small> [活动]</small>
+        </h4>
+    </div>
+    <div>
+        <!--活动卡片-->
+        <div class="art-card">
+            <img src="res/img/img.png">
+
+            <img src="https://img.icons8.com/fluency/1x/laptop-coding.png">
+            <h4>程序设计大赛</h4>
+
+            <img src="res/img/check.png">
+            <h4>可报名</h4>
+
+            <div class="progress mdui-progress">
+                <div class="mdui-progress-determinate mdui-color-blue-600" style="width: 30%;"></div>
+            </div>
+            <small>102人报名</small>
+
+            <div class="art-add_b">
+                报 名
+            </div>
+        </div>
+        <div class="art-card">
+            <img src="res/img/2.png">
+
+            <img src="https://img.icons8.com/fluency/1x/graduation-cap.png">
+            <h4>校园打扫活动</h4>
+
+            <img src="res/img/check.png">
+            <h4>可报名</h4>
+
+            <div class="progress mdui-progress">
+                <div class="mdui-progress-determinate mdui-color-blue-600" style="width: 68%;"></div>
+            </div>
+            <small>384人报名</small>
+
+            <div class="art-add_b">
+                报 名
+            </div>
+        </div>
+        <div class="art-card">
+            <img src="res/img/3.png">
+
+            <img src="https://img.icons8.com/fluency/1x/creativity.png">
+            <h4>脑力测试大赛</h4>
+
+            <img src="res/img/error.png">
+            <h4 style="background-color: red">数已满</h4>
+
+            <div class="progress mdui-progress">
+                <div class="mdui-progress-determinate mdui-color-blue-600" style="width: 100%;"></div>
+            </div>
+            <small>1000人报名</small>
+
+            <div class="art-add_b" style="background-color: red">
+                已 报 满
+            </div>
+        </div>
+        <div class="art-card">
+            <img src="res/img/4.png">
+
+            <img src="https://img.icons8.com/fluency/1x/microsoft-paint.png">
+            <h4>美术画画大赛</h4>
+
+            <img src="res/img/check.png">
+            <h4>可报名</h4>
+
+            <div class="progress mdui-progress">
+                <div class="mdui-progress-determinate mdui-color-blue-600" style="width: 17%;"></div>
+            </div>
+            <small>66人报名</small>
+
+            <div class="art-add_b">
+                报 名
+            </div>
+        </div>
+        <div class="art-card">
+            <img src="res/img/5.png">
+
+            <img src="https://img.icons8.com/fluency/1x/sports-mode.png">
+            <h4>体育长跑大赛</h4>
+
+            <img src="res/img/warnig.png">
+            <h4 style="background-color: orange">已结束</h4>
+
+            <div class="progress mdui-progress">
+                <div class="mdui-progress-determinate mdui-color-blue-600" style="width: 100%;"></div>
+            </div>
+            <small>400人报名</small>
+
+            <div class="art-add_b" style="background-color: orange">
+                已 结 束
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

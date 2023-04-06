@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css"/>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    html, body {
+        margin-top: 0;
+        background-color: #eaedf2;
+    }
+
+    .header {
+        padding-bottom: 35px;
+    }
+
+    .tops {
+        display: flex;
+        height: 80px;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 35px;
+        padding-right: 35px;
+        margin-top: 15px;
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+
+    .tops div {
+        display: flex;
+        height: 40px;
+        align-items: center;
+        background-color: #13abfd;
+        padding-left: 16px;
+        padding-right: 16px;
+        border-radius: 12px;
+        box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.3);
+        transition: 0.5s ease-in-out;
+    }
+
+    .tops div:hover {
+        border-radius: 25px;
+    }
+
+    .tops div h5 {
+        color: white;
+        margin-left: 6px;
+    }
+
+
+    .tops h4 {
+        font-weight: bold;
+    }
+
+    .data-box {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .data-div {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        width: 300px;
+        height: 430px;
+        background-color: white;
+        border-radius: 20px;
+        margin: 10px;
+        flex: 1 0 300px;
+        box-shadow: 0 1px 20px 1px rgba(0, 0, 0, 0.01);
+    }
+
+    .card:hover {
+        animation-name: myAnimation; /* 指定动画名称 */
+        animation-duration: 2s; /* 动画持续时间 */
+        animation-timing-function: ease-in-out; /* 动画缓动函数 */
+        animation-iteration-count: infinite; /* 动画循环次数 */
+    }
+
+    /*属性动画定义*/
+    @keyframes myAnimation {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.03);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .card div:first-child {
+        height: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px;
+    }
+
+    .card div:first-child div {
+        margin-left: 5px;
+    }
+
+    .card div:first-child div h5 {
+        margin-top: 3px;
+        font-size: 6px;
+    }
+
+    .card div:first-child img {
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+        box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.3);
+    }
+
+    .card div:nth-child(2) {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card div:nth-child(2) h5 {
+        margin-top: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+        color: lightslategrey;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3; /* 最多显示 3 行 */
+        overflow: hidden;
+    }
+
+    .card div:nth-child(2) img {
+        width: 280px;
+        height: 200px;
+        object-fit: cover;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px;
+        box-shadow: 0 1px 35px 1px rgba(0, 0, 0, 0.1);
+        margin: auto 5px;
+    }
+
+    .but {
+        height: 50px;
+        margin-left: 16px;
+        margin-right: 16px;
+        margin-top: 5px;
+        border-width: 3px;
+        border-color: #13abfd;
+        border-style: solid;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        box-shadow: 0 1px 3px 2px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.5s ease-in-out;
+    }
+
+    /*鼠标监控*/
+    .but:hover {
+        background-color: #13abfd;
+        color: white;
+    }
+
+    .but b {
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    .t-tab {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+</style>
+
+<body>
+
+<div class="header">
+    <!--头部-->
+    <div class="tops">
+        <h4>民大云热推 <small> [首页]</small></h4>
+        <div>
+            <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z"
+                      fill="none" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/>
+                <path d="M24 16V32" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M16 24L32 24" stroke="#ffffff" stroke-width="4" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+            </svg>
+            <h5>发布热帖</h5>
+        </div>
+    </div>
+    <!--卡片列表区-->
+    <div class="data-box">
+        <!--flex适配-->
+        <div class="data-div">
+            <!--卡片-->
+            <div class="card">
+                <div>
+                    <img class="head-icon" src="res/img/head.jpg"/>
+                    <div class="t-tab">
+                        <h4>热伊木</h4>
+                        <h5>计算机科学与工程学院</h5>
+                    </div>
+                    <div>
+                        <i class="mdui-icon material-icons">more_vert</i>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="https://img.zcool.cn/community/017c2c59de6227a80121ae0c026cfe.jpg@1280w_1l_2o_100sh.jpg"/>
+                    <h5>数据在内存中的地址也称为指针，如果一个变量存储了一份数据的指针，我们就称它为指针变量。
+
+                        在C语言中，允许用一个变量来存放指针，这种变量称为指针变量。指针变量的值就是某份数据的地址，这样的一份数据可以是数组、字符串、函数，也可以是另外的一个普通变量或指针变量。
+
+                        现在假设有一个 char 类型的变量 c，它存储了字符 'K'（ASCII码为十进制数 75），并占用了地址为 0X11A
+                        的内存（地址通常用十六进制表示）。另外有一个指针变量 p，它的值为 0X11A，正好等于变量 c 的地址，这种情况我们就称
+                        p 指向了 c，或者说 p 是指向变量 c 的指针。
+                    </h5>
+                </div>
+
+                <div class="but">
+                    <b>阅读详细内容</b>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <img class="head-icon" src="res/img/head.jpg"/>
+                    <div class="t-tab">
+                        <h4>热伊木</h4>
+                        <h5>计算机科学与工程学院</h5>
+                    </div>
+                    <div>
+                        <i class="mdui-icon material-icons">more_vert</i>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://news.cnr.cn/native/city/201410/W020141016611503397887.jpg"/>
+                    <h5>数据在内存中的地址也称为指针，如果一个变量存储了一份数据的指针，我们就称它为指针变量。
+
+                        在C语言中，允许用一个变量来存放指针，这种变量称为指针变量。指针变量的值就是某份数据的地址，这样的一份数据可以是数组、字符串、函数，也可以是另外的一个普通变量或指针变量。
+
+                        现在假设有一个 char 类型的变量 c，它存储了字符 'K'（ASCII码为十进制数 75），并占用了地址为 0X11A
+                        的内存（地址通常用十六进制表示）。另外有一个指针变量 p，它的值为 0X11A，正好等于变量 c 的地址，这种情况我们就称
+                        p 指向了 c，或者说 p 是指向变量 c 的指针。
+                    </h5>
+                </div>
+
+                <div class="but">
+                    <b>阅读详细内容</b>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <img class="head-icon" src="res/img/head.jpg"/>
+                    <div class="t-tab">
+                        <h4>热伊木</h4>
+                        <h5>计算机科学与工程学院</h5>
+                    </div>
+                    <div>
+                        <i class="mdui-icon material-icons">more_vert</i>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="https://pic4.zhimg.com/50/v2-188356cc4ba2003cf5f504d643b6fd74_hd.jpg"/>
+                    <h5>数据在内存中的地址也称为指针，如果一个变量存储了一份数据的指针，我们就称它为指针变量。
+
+                        在C语言中，允许用一个变量来存放指针，这种变量称为指针变量。指针变量的值就是某份数据的地址，这样的一份数据可以是数组、字符串、函数，也可以是另外的一个普通变量或指针变量。
+
+                        现在假设有一个 char 类型的变量 c，它存储了字符 'K'（ASCII码为十进制数 75），并占用了地址为 0X11A
+                        的内存（地址通常用十六进制表示）。另外有一个指针变量 p，它的值为 0X11A，正好等于变量 c 的地址，这种情况我们就称
+                        p 指向了 c，或者说 p 是指向变量 c 的指针。
+                    </h5>
+                </div>
+
+                <div class="but">
+                    <b>阅读详细内容</b>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <img class="head-icon" src="res/img/head.jpg"/>
+
+                    <div class="t-tab">
+                        <h4>热伊木</h4>
+                        <h5>计算机科学与工程学院</h5>
+                    </div>
+                    <div>
+                        <i class="mdui-icon material-icons">more_vert</i>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="https://static-data.eol.cn/upload/school/202115/1631688602_5188_thumb.jpg"/>
+                    <h5>数据在内存中的地址也称为指针，如果一个变量存储了一份数据的指针，我们就称它为指针变量。
+
+                        在C语言中，允许用一个变量来存放指针，这种变量称为指针变量。指针变量的值就是某份数据的地址，这样的一份数据可以是数组、字符串、函数，也可以是另外的一个普通变量或指针变量。
+
+                        现在假设有一个 char 类型的变量 c，它存储了字符 'K'（ASCII码为十进制数 75），并占用了地址为 0X11A
+                        的内存（地址通常用十六进制表示）。另外有一个指针变量 p，它的值为 0X11A，正好等于变量 c 的地址，这种情况我们就称
+                        p 指向了 c，或者说 p 是指向变量 c 的指针。
+                    </h5>
+                </div>
+
+                <div class="but">
+                    <b>阅读详细内容</b>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <img class="head-icon" src="res/img/head.jpg"/>
+                    <div class="t-tab">
+                        <h4>热伊木</h4>
+                        <h5>计算机科学与工程学院</h5>
+                    </div>
+                    <div>
+                        <i class="mdui-icon material-icons">more_vert</i>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="https://p4.itc.cn/q_70/images03/20210118/0da1a651f4b24a4db2c6dd9dc3942ce7.jpeg"/>
+                    <h5>数据在内存中的地址也称为指针，如果一个变量存储了一份数据的指针，我们就称它为指针变量。
+
+                        在C语言中，允许用一个变量来存放指针，这种变量称为指针变量。指针变量的值就是某份数据的地址，这样的一份数据可以是数组、字符串、函数，也可以是另外的一个普通变量或指针变量。
+
+                        现在假设有一个 char 类型的变量 c，它存储了字符 'K'（ASCII码为十进制数 75），并占用了地址为 0X11A
+                        的内存（地址通常用十六进制表示）。另外有一个指针变量 p，它的值为 0X11A，正好等于变量 c 的地址，这种情况我们就称
+                        p 指向了 c，或者说 p 是指向变量 c 的指针。
+                    </h5>
+                </div>
+
+                <div class="but">
+                    <b>阅读详细内容</b>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <img class="head-icon" src="res/img/head.jpg"/>
+                    <div class="t-tab">
+                        <h4>热伊木</h4>
+                        <h5>计算机科学与工程学院</h5>
+                    </div>
+                    <div>
+                        <i class="mdui-icon material-icons">more_vert</i>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="https://img.scimall.org.cn/collect/2020/12/14/20201214224323_b656d1.jpg"/>
+                    <h5>数据在内存中的地址也称为指针，如果一个变量存储了一份数据的指针，我们就称它为指针变量。
+
+                        在C语言中，允许用一个变量来存放指针，这种变量称为指针变量。指针变量的值就是某份数据的地址，这样的一份数据可以是数组、字符串、函数，也可以是另外的一个普通变量或指针变量。
+
+                        现在假设有一个 char 类型的变量 c，它存储了字符 'K'（ASCII码为十进制数 75），并占用了地址为 0X11A
+                        的内存（地址通常用十六进制表示）。另外有一个指针变量 p，它的值为 0X11A，正好等于变量 c 的地址，这种情况我们就称
+                        p 指向了 c，或者说 p 是指向变量 c 的指针。
+                    </h5>
+                </div>
+
+                <div class="but">
+                    <b>阅读详细内容</b>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <img class="head-icon" src="res/img/head.jpg"/>
+                    <div class="t-tab">
+                        <h4>热伊木</h4>
+                        <h5>计算机科学与工程学院</h5>
+                    </div>
+                    <div>
+                        <i class="mdui-icon material-icons">more_vert</i>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="https://www.nmu.edu.cn/__local/E/C0/4F/60C86E593AEE6F39D67C874440F_41038F21_2AB22.jpg"/>
+                    <h5>数据在内存中的地址也称为指针，如果一个变量存储了一份数据的指针，我们就称它为指针变量。
+
+                        在C语言中，允许用一个变量来存放指针，这种变量称为指针变量。指针变量的值就是某份数据的地址，这样的一份数据可以是数组、字符串、函数，也可以是另外的一个普通变量或指针变量。
+
+                        现在假设有一个 char 类型的变量 c，它存储了字符 'K'（ASCII码为十进制数 75），并占用了地址为 0X11A
+                        的内存（地址通常用十六进制表示）。另外有一个指针变量 p，它的值为 0X11A，正好等于变量 c 的地址，这种情况我们就称
+                        p 指向了 c，或者说 p 是指向变量 c 的指针。
+                    </h5>
+                </div>
+
+                <div class="but">
+                    <b>阅读详细内容</b>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <img class="head-icon" src="res/img/head.jpg"/>
+
+                    <div class="t-tab">
+                        <h4>热伊木</h4>
+                        <h5>计算机科学与工程学院</h5>
+                    </div>
+                    <div>
+                        <i class="mdui-icon material-icons">more_vert</i>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="https://inews.gtimg.com/newsapp_bt/0/13650192879/1000"/>
+                    <h5>数据在内存中的地址也称为指针，如果一个变量存储了一份数据的指针，我们就称它为指针变量。
+
+                        在C语言中，允许用一个变量来存放指针，这种变量称为指针变量。指针变量的值就是某份数据的地址，这样的一份数据可以是数组、字符串、函数，也可以是另外的一个普通变量或指针变量。
+
+                        现在假设有一个 char 类型的变量 c，它存储了字符 'K'（ASCII码为十进制数 75），并占用了地址为 0X11A
+                        的内存（地址通常用十六进制表示）。另外有一个指针变量 p，它的值为 0X11A，正好等于变量 c 的地址，这种情况我们就称
+                        p 指向了 c，或者说 p 是指向变量 c 的指针。
+                    </h5>
+                </div>
+
+                <div class="but">
+                    <b>阅读详细内容</b>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <img class="head-icon" src="res/img/head.jpg"/>
+
+                    <div class="t-tab">
+                        <h4>热伊木</h4>
+                        <h5>计算机科学与工程学院</h5>
+                    </div>
+                    <div>
+                        <i class="mdui-icon material-icons">more_vert</i>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="https://img.mp.sohu.com/upload/20170608/08460675430c421fab65c9e205f78578_th.png"/>
+                    <h5>数据在内存中的地址也称为指针，如果一个变量存储了一份数据的指针，我们就称它为指针变量。
+
+                        在C语言中，允许用一个变量来存放指针，这种变量称为指针变量。指针变量的值就是某份数据的地址，这样的一份数据可以是数组、字符串、函数，也可以是另外的一个普通变量或指针变量。
+
+                        现在假设有一个 char 类型的变量 c，它存储了字符 'K'（ASCII码为十进制数 75），并占用了地址为 0X11A
+                        的内存（地址通常用十六进制表示）。另外有一个指针变量 p，它的值为 0X11A，正好等于变量 c 的地址，这种情况我们就称
+                        p 指向了 c，或者说 p 是指向变量 c 的指针。
+                    </h5>
+                </div>
+
+                <div class="but">
+                    <b>阅读详细内容</b>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <img class="head-icon" src="res/img/head.jpg"/>
+                    <div class="t-tab">
+                        <h4>热伊木</h4>
+                        <h5>计算机科学与工程学院</h5>
+                    </div>
+                    <div>
+                        <i class="mdui-icon material-icons">more_vert</i>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="https://p6.itc.cn/q_70/images03/20210118/d8e39100627940ab9ff1e815b1feaac2.jpeg"/>
+                    <h5>数据在内存中的地址也称为指针，如果一个变量存储了一份数据的指针，我们就称它为指针变量。
+
+                        在C语言中，允许用一个变量来存放指针，这种变量称为指针变量。指针变量的值就是某份数据的地址，这样的一份数据可以是数组、字符串、函数，也可以是另外的一个普通变量或指针变量。
+
+                        现在假设有一个 char 类型的变量 c，它存储了字符 'K'（ASCII码为十进制数 75），并占用了地址为 0X11A
+                        的内存（地址通常用十六进制表示）。另外有一个指针变量 p，它的值为 0X11A，正好等于变量 c 的地址，这种情况我们就称
+                        p 指向了 c，或者说 p 是指向变量 c 的指针。
+                    </h5>
+                </div>
+
+                <div class="but">
+                    <b>阅读详细内容</b>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <img class="head-icon" src="res/img/head.jpg"/>
+
+                    <div class="t-tab">
+                        <h4>热伊木</h4>
+                        <h5>计算机科学与工程学院</h5>
+                    </div>
+                    <div>
+                        <i class="mdui-icon material-icons">more_vert</i>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="https://www.ceezz.cn/data/school_overview/1416251436530338356.jpg"/>
+                    <h5>数据在内存中的地址也称为指针，如果一个变量存储了一份数据的指针，我们就称它为指针变量。
+
+                        在C语言中，允许用一个变量来存放指针，这种变量称为指针变量。指针变量的值就是某份数据的地址，这样的一份数据可以是数组、字符串、函数，也可以是另外的一个普通变量或指针变量。
+
+                        现在假设有一个 char 类型的变量 c，它存储了字符 'K'（ASCII码为十进制数 75），并占用了地址为 0X11A
+                        的内存（地址通常用十六进制表示）。另外有一个指针变量 p，它的值为 0X11A，正好等于变量 c 的地址，这种情况我们就称
+                        p 指向了 c，或者说 p 是指向变量 c 的指针。
+                    </h5>
+                </div>
+
+                <div class="but">
+                    <b>阅读详细内容</b>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <img class="head-icon" src="res/img/head.jpg"/>
+
+                    <div class="t-tab">
+                        <h4>热伊木</h4>
+                        <h5>计算机科学与工程学院</h5>
+                    </div>
+                    <div>
+                        <i class="mdui-icon material-icons">more_vert</i>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="https://youimg1.c-ctrip.com/target/10060800000039vb004C9.jpg"/>
+                    <h5>数据在内存中的地址也称为指针，如果一个变量存储了一份数据的指针，我们就称它为指针变量。
+
+                        在C语言中，允许用一个变量来存放指针，这种变量称为指针变量。指针变量的值就是某份数据的地址，这样的一份数据可以是数组、字符串、函数，也可以是另外的一个普通变量或指针变量。
+
+                        现在假设有一个 char 类型的变量 c，它存储了字符 'K'（ASCII码为十进制数 75），并占用了地址为 0X11A
+                        的内存（地址通常用十六进制表示）。另外有一个指针变量 p，它的值为 0X11A，正好等于变量 c 的地址，这种情况我们就称
+                        p 指向了 c，或者说 p 是指向变量 c 的指针。
+                    </h5>
+                </div>
+
+                <div class="but">
+                    <b>阅读详细内容</b>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <img class="head-icon" src="res/img/head.jpg"/>
+                    <div class="t-tab">
+                        <h4>热伊木</h4>
+                        <h5>计算机科学与工程学院</h5>
+                    </div>
+                    <div>
+                        <i class="mdui-icon material-icons">more_vert</i>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="https://img.zcool.cn/community/011f1159de625da8012044634908d2.jpg@3000w_1l_0o_100sh.jpg"/>
+                    <h5>数据在内存中的地址也称为指针，如果一个变量存储了一份数据的指针，我们就称它为指针变量。
+
+                        在C语言中，允许用一个变量来存放指针，这种变量称为指针变量。指针变量的值就是某份数据的地址，这样的一份数据可以是数组、字符串、函数，也可以是另外的一个普通变量或指针变量。
+
+                        现在假设有一个 char 类型的变量 c，它存储了字符 'K'（ASCII码为十进制数 75），并占用了地址为 0X11A
+                        的内存（地址通常用十六进制表示）。另外有一个指针变量 p，它的值为 0X11A，正好等于变量 c 的地址，这种情况我们就称
+                        p 指向了 c，或者说 p 是指向变量 c 的指针。
+                    </h5>
+                </div>
+
+                <div class="but">
+                    <b>阅读详细内容</b>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <img class="head-icon" src="res/img/head.jpg"/>
+
+                    <div class="t-tab">
+                        <h4>热伊木</h4>
+                        <h5>计算机科学与工程学院</h5>
+                    </div>
+                    <div>
+                        <i class="mdui-icon material-icons">more_vert</i>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="https://img.scimall.org.cn/collect/2020/12/24/20201224200850_2749a7.jpg"/>
+                    <h5>数据在内存中的地址也称为指针，如果一个变量存储了一份数据的指针，我们就称它为指针变量。
+
+                        在C语言中，允许用一个变量来存放指针，这种变量称为指针变量。指针变量的值就是某份数据的地址，这样的一份数据可以是数组、字符串、函数，也可以是另外的一个普通变量或指针变量。
+
+                        现在假设有一个 char 类型的变量 c，它存储了字符 'K'（ASCII码为十进制数 75），并占用了地址为 0X11A
+                        的内存（地址通常用十六进制表示）。另外有一个指针变量 p，它的值为 0X11A，正好等于变量 c 的地址，这种情况我们就称
+                        p 指向了 c，或者说 p 是指向变量 c 的指针。
+                    </h5>
+                </div>
+
+                <div class="but">
+                    <b>阅读详细内容</b>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

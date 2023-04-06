@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>美食</title>
+    <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css"/>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    html, body {
+        background-color: #eaedf2;
+
+    }
+
+    .food-root {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .food-top {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .food-top div {
+        display: flex;
+        height: 40px;
+        align-items: center;
+        background-color: #13abfd;
+        padding-left: 16px;
+        padding-right: 16px;
+        border-radius: 12px;
+        box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.3);
+        transition: 0.5s ease-in-out;
+    }
+
+    .food-top div:hover {
+        border-radius: 25px;
+    }
+
+    .food-top div h5 {
+        color: white;
+        margin-left: 6px;
+    }
+
+    .food-top h4 {
+        margin-left: 25px;
+    }
+
+    .big-card {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.1);
+    }
+
+    .big-card:hover {
+        animation-name: shake;
+        animation-duration: 3s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes shake {
+        0% {
+            transform: translateX(0);
+        }
+
+        25% {
+            transform: translateX(-2px) rotate(-1deg);
+        }
+
+        50% {
+            transform: translateX(2px) rotate(1deg);
+        }
+
+        75% {
+            transform: translateX(-2px) rotate(-1deg);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    .big-card img {
+        width: 60%;
+        height: 230px;
+        border-radius: 5px;
+        object-fit: cover;
+        margin-left: 25px;
+        margin-right: 25px;
+        box-shadow: 0 1px 15px 1px rgba(0, 0, 0, 0.1);
+    }
+
+    .big-card div {
+        display: flex;
+        flex-flow: column;
+        margin-left: 24px;
+        margin-top: 15px;
+        justify-content: center;
+        align-items: start;
+        margin-right: 25px;
+    }
+
+    .big-card div h4 {
+        font-size: 20px;
+    }
+
+    .big-card div div {
+        display: flex;
+        margin-top: 10px;
+    }
+
+    .big-card div div small {
+        height: 20px;
+        width: 130px;
+        display: flex;
+        background-color: #13abfd;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-weight: bold;
+        border-radius: 15px;
+        padding-top: 1px;
+    }
+
+    .food-list {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-bottom: 25px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .div-1-1 {
+        width: 300px;
+        height: 250px;
+        background-color: white;
+        border-radius: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+        box-shadow: 0 0 35px 0 rgba(0, 0, 0, 0.1);
+        margin: 10px;
+    }
+
+    .div-1-1:hover {
+        animation-name: myAnimation; /* 指定动画名称 */
+        animation-duration: 2s; /* 动画持续时间 */
+        animation-timing-function: ease-in-out; /* 动画缓动函数 */
+        animation-iteration-count: infinite; /* 动画循环次数 */
+    }
+
+    /*属性动画定义*/
+    @keyframes myAnimation {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.03);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .div-1-1 img:nth-child(1) {
+        width: 270px;
+        height: 160px;
+        background-color: white;
+        border-radius: 10px;
+    }
+
+    .div-1-1 h5:nth-child(2) {
+        width: 100%;
+        margin-left: 35px;
+        display: flex;
+        margin-top: 14px;
+        font-size: 14px;
+    }
+
+    .div-1-1 small:nth-child(3) {
+        height: 20px;
+        width: 130px;
+        display: flex;
+        background-color: #2ECC71;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-weight: bold;
+        border-radius: 15px;
+        padding-top: 1px;
+        margin-top: 8px;
+        margin-right: 135px;
+    }
+
+</style>
+
+<body>
+
+<div class="food-root">
+    <!--头部-->
+    <div class="food-top">
+        <h4>
+            今日最香美食 <small> [美食]</small>
+        </h4>
+        <div>
+            <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z"
+                      fill="none" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/>
+                <path d="M24 16V32" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M16 24L32 24" stroke="#ffffff" stroke-width="4" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+            </svg>
+            <h5>发布美食</h5>
+        </div>
+    </div>
+    <!--大卡片-->
+    <div class="big-card">
+
+        <img src="https://p6.itc.cn/q_70/images03/20211230/756e6365f07246e1a01e7bcf80d87cbd.jpeg">
+        <div>
+            <h4>香香的麻辣烫麻辣烫</h4>
+            <small style="margin-top: 5px">
+                第一次吃这个，真的是很香，建议你们赶紧去尝一尝！
+            </small>
+            <div>
+                <small>东校区 | 三楼 | 靠左</small>
+            </div>
+        </div>
+    </div>
+    <!--二标题-->
+    <div class="food-top">
+        <h4>
+            民大云堂子 <small> [美食]</small>
+        </h4>
+    </div>
+    <!--美食列表-->
+    <div class="food-list">
+        <div class="div-1-1">
+            <img src="https://i3.meishichina.com/attachment/collect/2023/03/30/2023033016801676537911.jpg?x-oss-process=style/c320">
+            <h5>蘑菇瓦香鸡香菜 <small style="display:flex;justify-content: center;align-items: center;color: red;">&nbsp&nbsp&nbsp[香，快，便宜]</small>
+            </h5>
+            <small>东校区 | 三楼 | 靠左</small>
+        </div>
+        <div class="div-1-1">
+            <img src="https://p3.ssl.qhimgs3.com/t01c7f2aa1bea697289.jpg">
+            <h5>蘑菇瓦香鸡香菜 <small style="display:flex;justify-content: center;align-items: center;color: red;">&nbsp&nbsp&nbsp[香，快，便宜]</small>
+            </h5>
+            <small>东校区 | 三楼 | 靠左</small>
+        </div>
+        <div class="div-1-1">
+            <img src="https://i3.meishichina.com/attachment/recipe/2017/10/11/20171011150768817134513.jpg?x-oss-process=style/c320">
+            <h5>蘑菇瓦香鸡香菜 <small style="display:flex;justify-content: center;align-items: center;color: red;">&nbsp&nbsp&nbsp[香，快，便宜]</small>
+            </h5>
+            <small>东校区 | 三楼 | 靠左</small>
+        </div>
+        <div class="div-1-1">
+            <img src="https://i3.meishichina.com/attachment/recipe/2021/04/05/2021040516175869508208197577.jpg?x-oss-process=style/c320">
+            <h5>蘑菇瓦香鸡香菜 <small style="display:flex;justify-content: center;align-items: center;color: red;">&nbsp&nbsp&nbsp[香，快，便宜]</small>
+            </h5>
+            <small>东校区 | 三楼 | 靠左</small>
+        </div>
+        <div class="div-1-1">
+            <img src="https://i3.meishichina.com/attachment/recipe/2021/04/04/2021040416175140495788197577.jpg?x-oss-process=style/c320">
+            <h5>蘑菇瓦香鸡香菜 <small style="display:flex;justify-content: center;align-items: center;color: red;">&nbsp&nbsp&nbsp[香，快，便宜]</small>
+            </h5>
+            <small>东校区 | 三楼 | 靠左</small>
+        </div>
+        <div class="div-1-1">
+            <img src="https://i3.meishichina.com/attachment/recipe/2022/04/05/2022040516491210651641.jpg?x-oss-process=style/c320">
+            <h5>蘑菇瓦香鸡香菜 <small style="display:flex;justify-content: center;align-items: center;color: red;">&nbsp&nbsp&nbsp[香，快，便宜]</small>
+            </h5>
+            <small>东校区 | 三楼 | 靠左</small>
+        </div>
+        <div class="div-1-1">
+            <img src="https://i3.meishichina.com/attachment/recipe/2021/04/04/2021040416175255735018197577.jpg?x-oss-process=style/c320">
+            <h5>蘑菇瓦香鸡香菜 <small style="display:flex;justify-content: center;align-items: center;color: red;">&nbsp&nbsp&nbsp[香，快，便宜]</small>
+            </h5>
+            <small>东校区 | 三楼 | 靠左</small>
+        </div>
+        <div class="div-1-1">
+            <img src="https://i3.meishichina.com/attachment/recipe/2022/04/03/2022040316489571973441.jpg?x-oss-process=style/c320">
+            <h5>蘑菇瓦香鸡香菜 <small style="display:flex;justify-content: center;align-items: center;color: red;">&nbsp&nbsp&nbsp[香，快，便宜]</small>
+            </h5>
+            <small>东校区 | 三楼 | 靠左</small>
+        </div>
+        <div class="div-1-1">
+            <img src="https://i3.meishichina.com/attachment/recipe/2021/04/03/2021040316174469827228197577.jpg?x-oss-process=style/c320">
+            <h5>蘑菇瓦香鸡香菜 <small style="display:flex;justify-content: center;align-items: center;color: red;">&nbsp&nbsp&nbsp[香，快，便宜]</small>
+            </h5>
+            <small>东校区 | 三楼 | 靠左</small>
+        </div>
+        <div class="div-1-1">
+            <img src="https://p2.itc.cn/q_70/images03/20211230/6dc2519577eb4fa4861d4da8ff6f9355.jpeg">
+            <h5>蘑菇瓦香鸡香菜 <small style="display:flex;justify-content: center;align-items: center;color: red;">&nbsp&nbsp&nbsp[香，快，便宜]</small>
+            </h5>
+            <small>东校区 | 三楼 | 靠左</small>
+        </div>
+        <div class="div-1-1">
+            <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fci.xiaohongshu.com%2F6cc2c0b2-ae20-1e8f-3613-a16c7d1e672a%3FimageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&refer=http%3A%2F%2Fci.xiaohongshu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1683339547&t=08156c46e50742e09d435e660f539381">
+            <h5>蘑菇瓦香鸡香菜 <small style="display:flex;justify-content: center;align-items: center;color: red;">&nbsp&nbsp&nbsp[香，快，便宜]</small>
+            </h5>
+            <small>东校区 | 三楼 | 靠左</small>
+        </div>
+        <div class="div-1-1">
+            <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fci.xiaohongshu.com%2F238ee336-2514-9268-9ef0-779dad15bfd8%3FimageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&refer=http%3A%2F%2Fci.xiaohongshu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1683339645&t=c4be066091c4ce585fb07bbb03bee31d">
+            <h5>蘑菇瓦香鸡香菜 <small style="display:flex;justify-content: center;align-items: center;color: red;">&nbsp&nbsp&nbsp[香，快，便宜]</small>
+            </h5>
+            <small>东校区 | 三楼 | 靠左</small>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

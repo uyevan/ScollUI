@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的</title>
+    <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css"/>
+</head>
+
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    html, body {
+        background-color: #eaedf2;
+    }
+    .art-root {
+        padding-bottom: 35px;
+    }
+
+    .art-top {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    }
+
+    .art-top h4 {
+        margin-left: 55px;
+    }
+
+    .my-div {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: normal;
+    }
+
+
+    .div-1 {
+        display: flex;
+        flex-flow: column;
+        margin-left: 60px;
+        margin-right: 60px;
+        margin-top: 10px;
+    }
+
+    .div-1-1 {
+        width: 200px;
+        height: 250px;
+        background-color: white;
+        border-radius: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+    }
+
+    .div-1-1 img:nth-child(1) {
+        width: 165px;
+        height: 160px;
+        background-color: white;
+        border-radius: 10px;
+    }
+
+    .div-1-1 h5:nth-child(2) {
+        width: 165px;
+        height: 40px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-width: 3px;
+        border-color: #eaedf2;
+        border-style: solid;
+        margin-top: 14px;
+        border-radius: 12px;
+        font-size: 12px;
+        transition: background-color 1s ease-in-out;
+        box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    /*鼠标监控*/
+    .div-1-1 h5:hover, .my-but:hover {
+        background-color: #13abfd;
+        color: white;
+    }
+
+    .div-1 small:nth-child(2) {
+        margin-top: 35px;
+        margin-bottom: 5px;
+    }
+
+    .div-1-3 {
+        display: flex;
+        flex-flow: column;
+        margin-top: 10px;
+    }
+
+    .div-1-3 div:nth-child(1) {
+        width: 200px;
+        height: 45px;
+        background-color: white;
+        border-radius: 10px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        box-shadow: 0 1px 15px 1px rgba(0, 0, 0, 0.1);
+        /*定义动画时间类型*/
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .div-1-3 div:nth-child(1) img:nth-child(1) {
+        width: 24px;
+        height: 24px;
+        border-radius: 5px;
+        margin-left: 14px;
+    }
+
+    .div-1-3 div:nth-child(1) h4:nth-child(2) {
+        font-size: 12px;
+        margin-left: 8px;
+    }
+
+    .div-1-3 div:nth-child(1) img:nth-child(3) {
+        width: 20px;
+        height: 20px;
+        margin-left: 70px;
+    }
+
+    .div-2 {
+        display: flex;
+        flex-flow: column;
+        margin-left: 60px;
+        margin-right: 60px;
+        margin-top: 10px;
+    }
+
+    .div-2 div {
+        margin-top: 15px;
+    }
+
+    .div-2 div:first-child {
+        margin-top: 5px;
+    }
+
+    .div-2 div small:first-child {
+        font-weight: bold;
+    }
+
+    .div-2 div div:nth-child(2) {
+        display: flex;
+        width: 200px;
+        height: 30px;
+        margin-top: 5px;
+        border-radius: 14px;
+        box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0);
+    }
+
+    .div-1-3 div:nth-child(1):hover, .div-3-3 div:nth-child(1):hover {
+        transform: scale(0.90);
+    }
+
+    .div-2 div div:nth-child(2) input {
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 14px;
+        border-width: 0;
+        outline-color: #13abfd; /*输入时的定义*/
+    }
+
+    .my-but {
+        width: 140px;
+        height: 40px;
+        background-color: white;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        font-weight: bold;
+        font-size: 14px;
+        border-radius: 10px;
+        margin-top: 10px;
+        box-shadow: 0 1px 15px 1px rgba(0, 0, 0, 0);
+        transition: background-color 1s ease-in-out;
+    }
+
+    .div-3 {
+        margin-left: 60px;
+        margin-right: 60px;
+        margin-top: 10px;
+    }
+
+    .div-3-3 {
+        display: flex;
+        flex-flow: column;
+        margin-top: 10px;
+    }
+
+    .div-3-3 div:nth-child(1) {
+        width: 200px;
+        height: 75px;
+        background-color: white;
+        border-radius: 10px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        box-shadow: 0 1px 15px 1px rgba(0, 0, 0, 0.1);
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .div-3-3 div:nth-child(1) img:nth-child(1) {
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+        margin-left: 16px;
+    }
+
+    .div-3-3 div:nth-child(1) div:nth-child(2) {
+        margin-left: 16px;
+    }
+
+</style>
+
+<body>
+
+<div class="art-root">
+    <!--头部-->
+    <div class="art-top">
+        <h4>
+            民大云空间 <small> [个人]</small>
+        </h4>
+    </div>
+    <!--内容区-->
+    <div class="my-div">
+        <!--头像及消息-->
+        <div class="div-1">
+            <div class="div-1-1">
+                <img src="res/img/head.jpg">
+                <h5>修 改 头 像</h5>
+            </div>
+
+            <small>消息</small>
+            <div class="div-1-3">
+                <div>
+                    <img src="res/img/news.png">
+                    <h4>系统消息</h4>
+                    <img src="res/img/right.png"/>
+                </div>
+            </div>
+            <div class="div-1-3">
+                <div>
+                    <img src="res/img/like.png">
+                    <h4>点赞消息</h4>
+                    <img src="res/img/right.png"/>
+                </div>
+            </div>
+            <div class="div-1-3">
+                <div>
+                    <img src="res/img/comment.png">
+                    <h4>评论消息</h4>
+                    <img src="res/img/right.png"/>
+                </div>
+            </div>
+        </div>
+        <!--修改信息区-->
+        <div class="div-2">
+            <div>
+                <small>修改名称</small>
+                <div><input placeholder="Evan" style="font-size: 13px;"/></div>
+            </div>
+            <div>
+                <small>修改签名</small>
+                <div><input placeholder="你好，北方民族大学！" style="font-size: 13px"/></div>
+            </div>
+            <div>
+                <small>修改密码</small>
+                <div><input type="password" placeholder="123456" value="123456"/></div>
+            </div>
+            <div class="my-but">更 新</div>
+        </div>
+        <!--统计区-->
+        <div class="div-3">
+            <small>统计数据</small>
+            <div class="div-3-3">
+                <div>
+                    <img src="res/img/credit.png">
+                    <div>
+                        <h3>99%</h3>
+                        <small>你的信誉值</small>
+                    </div>
+                </div>
+            </div>
+            <div class="div-3-3">
+                <div>
+                    <img src="res/img/heat.png">
+                    <div>
+                        <h3>66</h3>
+                        <small>你的热度值</small>
+                    </div>
+                </div>
+            </div>
+            <div class="div-3-3">
+                <div>
+                    <img src="res/img/grade.png">
+                    <div>
+                        <h4>一般</h4>
+                        <small>你的等级</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
