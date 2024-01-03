@@ -1,9 +1,9 @@
 # ScollUI纯天然三件套UI
 #### ❤️介绍
-学校进行的网页设计大赛项目，UI全部原生HTML5+CSS3设计的，逻辑部分用了部分Jquery框架，图片素材来自广大互联网，实现的功能主要有导航栏之高斯模糊，全局回弹效果，导航栏定位，适配器，动画等等。希望对您有一定的帮助。
+学校进行的网页设计大赛项目，UI全部原生HTML5+CSS3设计的，逻辑部分用了部分Jquery框架，图片素材来自广大互联网，实现的功能主要有导航栏之高斯模糊，全局回弹效果，导航栏定位，适配器，动画等等。希望对您有一定的帮助。   
 The web design competition project conducted by the school features a UI designed entirely in native HTML5+CSS3, with some Jquery framework used in the logic section. The image materials are sourced from the vast internet, and the main functions implemented include Gaussian blur in the navigation bar, global rebound effect, navigation bar positioning, adapter, animation, and so on. I hope it will be of some help to you.
 #### 👽关于
-比赛就是要求使用三件套，然后就没有用任何别的css或html组件库（图标外），最后拿了第二名。在这里备份一下，大佬就不用看了，对刚学者可能有点用。
+比赛就是要求使用三件套，然后就没有用任何别的css或html组件库（图标外），最后拿了第二名。在这里备份一下，大佬就不用看了，对刚学者可能有点用。   
 The competition required the use of a three piece set, without using any other CSS or HTML component libraries (excluding icons), and ultimately won second place. Here's a backup, you don't need to look at it, it may be useful for beginners.
 #### 🏳️‍🌈Demo
 我使用了大量的Flex布局来适配电脑，手机。  
